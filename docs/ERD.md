@@ -126,7 +126,7 @@ erDiagram
         INT PRODUCT_ID "상품 ID"
         VARCHAR PRODUCT_NAME "상품명"
         INT RANK "순위"
-        INT SALES_COUNT "판매수량"
+        INT SALES_COUNT "판매개수"
         DATETIME RANKED_AT "순위기준일"
         DATETIME CREATED_AT "생성일"  
     }  
