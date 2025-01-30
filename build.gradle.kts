@@ -34,6 +34,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	annotationProcessor ("org.springframework.boot:spring-boot-configuration-processor")
 
 	// DB
 	runtimeOnly("com.mysql:mysql-connector-j")
@@ -44,6 +45,16 @@ dependencies {
 	testImplementation("org.testcontainers:junit-jupiter")
 	testImplementation("org.testcontainers:mysql")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	// Lombok
+	compileOnly ("org.projectlombok:lombok")
+	annotationProcessor ("org.projectlombok:lombok")
+	testImplementation ("org.projectlombok:lombok")
+	testAnnotationProcessor ("org.projectlombok:lombok")
+
+	// Swagger
+	implementation ("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
+
 }
 
 tasks.withType<Test> {
