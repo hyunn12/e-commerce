@@ -108,8 +108,7 @@ sequenceDiagram
             ORDER->>+COUPON: 쿠폰 사용 상태 변경 요청
             COUPON-->>-ORDER: 변경 결과 반환
 
-            ORDER->>+CART: 장바구니 상품 제거 요청
-            CART-->>-ORDER: 제거 결과 반환
+            ORDER--)CART: 장바구니 상품 제거 요청
 
             ORDER->>+STOCK: 재고 차감 요청
             STOCK-->>-ORDER: 차감 결과 반환
@@ -120,6 +119,10 @@ sequenceDiagram
     end
 
 ```
+
+재고 락 -> 분산락 걸기
+멀티락 오키..
+
 
 ### 결제
 > 사용자가 기충전된 포인트를 사용해 결제한다.

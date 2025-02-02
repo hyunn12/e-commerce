@@ -2,7 +2,7 @@
 
 ### 데이터 목록
 
-- **USER**:  회원
+- **USER**:  사용자
 - **POINT**: 포인트
 - **PRODUCT**: 상품
 - **PRODUCT_STOCK**: 재고
@@ -19,8 +19,8 @@
 ```mermaid  
 erDiagram  
     USER {  
-        BIGINT USER_ID PK "회원 ID"  
-        VARCHAR USER_NAME "회원명"  
+        BIGINT USER_ID PK "사용자 ID"  
+        VARCHAR USER_NAME "사용자명"  
         DATETIME CREATED_AT "생성일"  
         DATETIME UPDATED_AT "수정일"  
         DATETIME DELETED_AT "삭제일"  
@@ -28,7 +28,7 @@ erDiagram
   
     POINT {  
         INT POINT_ID PK "포인트 ID"  
-        INT USER_ID FK "회원 ID"  
+        INT USER_ID FK "사용자 ID"  
         INT POINT "포인트"  
         DATETIME CREATED_AT "생성일"  
         DATETIME UPDATED_AT "수정일"  
@@ -55,11 +55,11 @@ erDiagram
         
     ORDER {  
         INT ORDER_ID PK "주문 ID"  
-        INT USER_ID FK "회원 ID"  
+        INT USER_ID FK "사용자 ID"  
         INT COUPON_ID FK "쿠폰 ID"  
         INT TOTAL_AMOUNT "총금액"  
         INT FINAL_AMOUNT "최종금액"  
-        VARCHAR STATUS "주문상태 (SUCCESS, FAIL, CANCEL)"  
+        VARCHAR STATUS "주문상태 (INIT, SUCCESS, CANCEL)" 
         DATETIME CREATED_AT "생성일"  
         DATETIME UPDATED_AT "수정일"  
         DATETIME DELETED_AT "삭제일"  
@@ -79,7 +79,7 @@ erDiagram
     PAYMENT {  
         INT PAYMENT_ID PK "결제 ID"  
         INT ORDER_ID FK "주문 ID"  
-        INT USER_ID FK "회원 ID"  
+        INT USER_ID FK "사용자 ID"  
         INT PAYMENT_AMOUNT "결제금액"  
         VARCHAR STATUS "결제상태 (SUCCESS, FAIL, CANCEL)"  
         DATETIME CREATED_AT "생성일"  
@@ -92,10 +92,9 @@ erDiagram
         VARCHAR NAME "쿠폰명"  
         INT MAX_COUNT "최대개수"  
         INT AVAILABLE_COUNT "발급가능개수"  
-        VARCHAR DISCOUNT_TYPE "할인유형 (FIXED, PERCENTAGE)"
+        VARCHAR DISCOUNT_TYPE "할인유형 (PRICE, RATE)"
         INT DISCOUNT_VALUE "할인값"
         INT MIN_AMOUNT "최소금액"
-        DATETIME EXPIRE_AT "만료일"
         DATETIME CREATED_AT "생성일"  
         DATETIME UPDATED_AT "수정일"  
         DATETIME DELETED_AT "삭제일"  
@@ -104,16 +103,17 @@ erDiagram
     USER_COUPON {
         INT USER_COUPON_ID PK "쿠폰 ID"  
         INT COUPON_ID FK "쿠폰 ID"  
-        INT USER_ID FK "회원 ID"  
+        INT USER_ID FK "사용자 ID"  
         VARCHAR STATUS "쿠폰상태 (UNUSED, USED, EXPIRED)"   
         DATETIME CREATED_AT "생성일"  
-        DATETIME USED_AT "사용일"  
+        DATETIME USED_AT "사용일"
+        DATETIME EXPIRE_AT "만료일"
         DATETIME DELETED_AT "삭제일"  
     }  
   
     CART {  
-        INT CART_ID PK "카트 ID"  
-        INT USER_ID FK "회원 ID"  
+        INT CART_ID PK "장바구니 ID"  
+        INT USER_ID FK "사용자 ID"  
         INT PRODUCT_ID FK "상품 ID"  
         INT QUANTITY "수량"  
         DATETIME CREATED_AT "생성일"  
