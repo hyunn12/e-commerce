@@ -13,7 +13,7 @@ public class UserResponse {
 
     @Getter
     @Builder
-    @Schema(name = "UserResponse.PointInfo", description = "포인트 조회 결과 객체")
+    @Schema(name = "UserResponse.PointInfo", description = "사용자 포인트 조회 결과 객체")
     public static class PointInfo {
         @Schema(description = "포인트", example = "10000")
         private int point;
@@ -21,7 +21,7 @@ public class UserResponse {
 
     @Getter
     @Builder
-    @Schema(name = "UserResponse.CouponInfo", description = "쿠폰 목록 조회 결과 객체")
+    @Schema(name = "UserResponse.CouponInfo", description = "사용자 쿠폰 목록 조회 결과 객체")
     public static class CouponInfo {
         @Schema(description = "쿠폰 ID", example = "1")
         private Long couponId;
@@ -29,7 +29,7 @@ public class UserResponse {
         @Schema(description = "쿠폰명", example = "Test Coupon A")
         private String name;
 
-        @Schema(description = "할인유형", example = "FIXED")
+        @Schema(description = "할인유형", example = "PRICE")
         private String discountType;
 
         @Schema(description = "할인값", example = "5000")
@@ -46,6 +46,23 @@ public class UserResponse {
 
         @Schema(description = "만료일", example = "2025-01-01 00:00:00")
         private LocalDateTime expiredAt;
+    }
+
+    @Getter
+    @Builder
+    @Schema(name = "UserResponse.CartInfo", description = "사용자 장바구니 조회 결과 객체")
+    public static class CartInfo {
+        @Schema(description = "장바구니 ID", example = "1")
+        private Long cartId;
+
+        @Schema(description = "상품 ID", example = "1")
+        private Long productId;
+
+        @Schema(description = "사용자 ID", example = "1")
+        private Long userId;
+
+        @Schema(description = "수량", example = "1")
+        private int quantity;
     }
 
 }

@@ -11,13 +11,22 @@ public class CouponRequest {
 
     @Getter
     @Builder
-    @Schema(name = "CouponRequest.Issue", description = "쿠폰 발급 요청 객체")
-    public static class Issue {
-        @Schema(description = "쿠폰 ID", example = "1")
-        private Long couponId;
+    @Schema(name = "CouponRequest.Create", description = "쿠폰 생성 요청 객체")
+    public static class Create {
+        @Schema(description = "쿠폰명", example = "Coupon Example")
+        private String name;
 
-        @Schema(description = "사용자 ID", example = "1")
-        private Long userId;
+        @Schema(description = "최대개수", example = "100")
+        private int maxCount;
+
+        @Schema(description = "할인유형", example = "PRICE")
+        private String discountType;
+
+        @Schema(description = "할인값", example = "5000")
+        private int discountValue;
+
+        @Schema(description = "최소금액", example = "10000")
+        private int minAmount;
     }
 
 }

@@ -14,12 +14,15 @@ public class OrderRequest {
     @Getter
     @Builder
     @Schema(name = "OrderRequest.Insert", description = "주문 추가 요청 객체")
-    public static class Insert {
+    public static class Order {
         @Schema(description = "사용자 ID", example = "1")
         private Long userId;
 
         @Schema(description = "쿠폰 ID", example = "1")
         private Long couponId;
+
+        @Schema(description = "장바구니 ID", example = "1")
+        private Long cartId;
 
         @Schema(description = "주문 상세 목록")
         private List<OrderRequest.Item> items;

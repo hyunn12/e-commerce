@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/products")
 @Tag(name = "product", description = "상품 관련 API")
 public class ProductController {
 
@@ -30,7 +30,7 @@ public class ProductController {
     }
 
     // todo 상품 상세 조회
-    @GetMapping("/detail/{id}")
+    @GetMapping("/{id}")
     @Operation(summary = "상품 상세 조회", description = "특정 상품 상세 조회")
     public ResponseEntity<?> detail(@PathVariable("id") Long productId) {
         return ResponseEntity.ok().body(

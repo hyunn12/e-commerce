@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/api/coupon")
+@RequestMapping("/api/coupons")
 @Tag(name = "coupon", description = "쿠폰 관련 API")
 public class CouponController {
 
-    // todo 쿠폰 발급
-    @PostMapping("/issue")
-    @Operation(summary = "쿠폰 발급", description = "특정 쿠폰 발급")
-    public ResponseEntity<?> issue(
-            @RequestBody CouponRequest.Issue request
+    // todo 쿠폰 생성
+    @PostMapping
+    @Operation(summary = "쿠폰 생성", description = "쿠폰 생성")
+    public ResponseEntity<?> create(
+            @RequestBody CouponRequest.Create request
     ) {
         return ResponseEntity.ok().body(
                 CouponResponse.Info.builder().couponId(1L).name("쿠폰1").discountType("FIXED").discountValue(5000).minAmount(10000).status("USED").expiredAt(LocalDateTime.now()).build()

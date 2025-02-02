@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/payment")
+@RequestMapping("/api/payments")
 @Tag(name = "payment", description = "결제 관련 API")
 public class PaymentController {
 
     // todo 결제 추가
-    @PostMapping("/pay")
+    @PostMapping
     @Operation(summary = "결제", description = "특정 주문의 결제 추가")
     public ResponseEntity<?> pay(
-            @RequestBody PaymentRequest.Payment request
+            @RequestBody PaymentRequest.Pay request
     ) {
         return ResponseEntity.ok().body(
-                PaymentResponse.Info.builder().paymentId(1L).paymentAmount(request.getPaymentAmount()).status("SUCCESS").build()
+                PaymentResponse.Info.builder().paymentId(1L).status("SUCCESS").build()
         );
     }
 

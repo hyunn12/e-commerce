@@ -21,7 +21,7 @@ public class CouponResponse {
         @Schema(description = "쿠폰명", example = "Test Coupon A")
         private String name;
 
-        @Schema(description = "할인유형", example = "FIXED")
+        @Schema(description = "할인유형", example = "PRICE")
         private String discountType;
 
         @Schema(description = "할인값", example = "5000")
